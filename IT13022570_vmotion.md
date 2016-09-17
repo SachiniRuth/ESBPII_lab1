@@ -16,6 +16,32 @@ Practical : V motion <br>
 
 ---------------------------------------------------------------------------------
 
+###vMotion<br>
+virtual machine can move from one physical server to another while it's running without any downtime to end users. (running virtual machine moves
+from one host to another)<br>
+
+####1.vMotion Requirements<br>
+- virtual machine must not have a connection to a virtual device such as a CD-ROM with a logical image mounted. if they are connected to a
+host, that will block the Motion migration. solution-store those devices in a shared data store.<br>
+- need to make sure to have storage between ESXi servers-iSCSI ,CF, NFS(shared storage) so the both hosts can see the vm files from the shared storage.<br>
+- each host must have the Gigabit Ethernet network connection.<br>
+- host must be plugged into the same physical network.<br>
+- vMotion works with standard switches or destributed virtual switches.<br>
+- should have CPU  compatibility. otherw ise w e can' t do the migration. follow ing is happen w hen there is no CPU  compatibility. it says that the
+vMotion is blocking because, there ,is a CD-ROM is attatched to the data store that is not accessible to the host.<br>
+
+####2.Benefits of vMotion.<br>
+- Automatically optimize and allocate entire pools of resources.<br>
+
+By having all your server and/or desktops virtualized you can move VM’s from one physical host to another, which is done rapidly over a high speed network connection, the original host and destination host stay in sync until the transfer it complete leaving the user unaware of the move.
+This allow s network administrators to easily select resource pools to assign to the different VMs.<br>
+
+- minimiz e the scheduled downtime.<br>
+
+only have to move the VM to another physical host, creating zero downtime for the users and allowing administrators to perform maintenance at any time.<br>
+
+####3.How to configure  hosts to do the vMotion.<br>
+
 ![](http://i.imgur.com/ZNYoHSG.png)<br>
 
 Now we look at the tab Configuration-> Networking<br>
